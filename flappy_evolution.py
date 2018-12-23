@@ -9,6 +9,7 @@ from sklearn.neural_network import MLPClassifier
 from keras import Sequential
 from keras.layers import Dense, LSTM, RNN
 from keras.models import clone_model
+from keras.optimizers import sgd
 import time
 import warnings
 
@@ -62,7 +63,7 @@ xrange = range
 
 # Evolution Parameters
 best_paravaigal_in_each_gen = []
-population_count = 30
+population_count = 10
 paravaigal = []
 max_gen = 100
 
@@ -76,7 +77,7 @@ class Paravai:
 
     def __init__(self, no_brain=False):
         self.movementInfo = globals()['movementInfo']
-        self.score = self.playerIndex = self.loopIter = self.time_travelled = self.fitness_score = 0
+        self.score = self.playerIndex = self.loopIter = self.time_travelled = self.fitness_score = self.crash_score = 0
 
         # player velocity, max velocity, downward accleration, accleration on flap
         self.playerVelY = -9  # player's velocity along Y, default same as playerFlapped
@@ -91,27 +92,31 @@ class Paravai:
 
         self.playerIndexGen = self.movementInfo['playerIndexGen']
         self.playerx, self.playery = int(SCREENWIDTH * 0.2), int(self.movementInfo['playery'])
-        empty_inputs = [0] * 22
+        empty_inputs = [0] * 4
 
         nn = None
 
         if not no_brain:
-            initial_input = [self.playerx, self.playery, self.playerVelY, self.playerAccY]
+            initial_input = [
+                self.playerx,
+                self.playery,
+                # self.playerVelY
+            ]
             initial_input.extend(empty_inputs)
 
             # MLPClassifier NN
             if nn_implementation == 'sklearn':
-                nn = MLPClassifier(hidden_layer_sizes=(len(initial_input), 24, 18), shuffle=True)
+                nn = MLPClassifier(hidden_layer_sizes=(len(initial_input), 4, 6), shuffle=True)
                 nn.fit(np.asarray(initial_input).reshape(1, -1), [True])
 
             # Keras NN
             elif nn_implementation == 'keras':
                 nn = Sequential()
                 nn.add(Dense(len(initial_input), input_dim=len(initial_input), activation='relu'))
-                nn.add(Dense(24, activation='relu'))
-                nn.add(Dense(18, activation='relu'))
+                nn.add(Dense(4, activation='relu'))
+                nn.add(Dense(6, activation='relu'))
                 nn.add(Dense(1, activation='sigmoid'))
-                nn.compile(loss='binary_crossentropy', optimizer='adam', metrics=['accuracy'])
+                nn.compile(loss="binary_crossentropy", optimizer="adam", metrics=["accuracy"])
                 nn.fit(np.asarray(initial_input).reshape(1, -1), [True], verbose=0, shuffle=True)
 
         self.brain = nn
@@ -145,21 +150,63 @@ class Paravai:
         lower2_y_distance = lowerPipes[1]['y'] - self.playery
         upper_pipe_gap = upper2_x - upper1_x
         lower_pipe_gap = lower2_x - lower1_x
-        input_data = np.array([self.playerx, self.playery, self.playerVelY,
-                               self.playerAccY, upper1_x, upper2_x, upper1_y, upper2_y, lower1_x,
-                               lower2_x, lower1_y, lower2_y, upper1_height, upper2_height,
-                               lower1_height, lower2_height, upper1_x_distance, upper2_x_distance,
-                               upper1_y_distance, upper2_y_distance, lower1_x_distance,
-                               lower2_x_distance,
-                               lower1_y_distance, lower2_y_distance, upper_pipe_gap,
-                               lower_pipe_gap]).reshape(1,
-                                                        -1)
+        upper1_pipe_tip = upperPipes[0]['height']
+        lower1_pipe_tip = lowerPipes[0]['y'] - IMAGES['player'][0].get_height()
+        input_data = np.array([
+            self.playerx,
+            self.playery,
+            # self.playerVelY,
+            upper1_x,
+            # upper1_y,
+            lower1_x,
+            # lower1_y,
+            # upper2_x,
+            # upper2_y,
+            # lower2_x,
+            # lower2_y,
+            # upper1_height,
+            # lower1_height,
+            # upper2_height,
+            # lower2_height,
+            # upper1_x_distance,
+            # upper1_y_distance,
+            # lower1_x_distance,
+            # lower1_y_distance,
+            # upper2_x_distance,
+            # upper2_y_distance,
+            # lower2_x_distance,
+            # lower2_y_distance,
+            # upper_pipe_gap,
+            # lower_pipe_gap,
+            upper1_pipe_tip,
+            lower1_pipe_tip
+        ]).reshape(1, -1)
         prediction = 0
         if nn_implementation == 'keras':
             prediction = self.brain.predict(input_data)[0]
         elif nn_implementation == 'sklearn':
             prediction = self.brain.predict_proba(input_data)[0]
         return prediction
+
+
+# def get_fittest(paravaigal, use_one_parent_from_prev_gen=False, use_score=True):
+#     for paravai in paravaigal:
+#         paravai.fitness_score = paravai.time_travelled + (paravai.score * 200) - paravai.crash_score
+#     paravaigal.sort(key=lambda paravai: paravai.fitness_score, reverse=True)
+#     best_paravaigal = paravaigal[:2]
+#     return best_paravaigal
+
+
+def get_best_ancestor(immediate_best=True, greater_than=0):
+    fittest_bird = Paravai()
+    best_fitness_score = 0
+    for old_paravaigal in reversed(best_paravaigal_in_each_gen):
+        for old_paravai in old_paravaigal:
+            if immediate_best and old_paravai.fitness_score > greater_than:
+                return old_paravai
+            if old_paravai.fitness_score > best_fitness_score:
+                fittest_bird = old_paravai
+    return fittest_bird
 
 
 def get_fittest(paravaigal, use_one_parent_from_prev_gen=False, use_score=True):
@@ -172,10 +219,12 @@ def get_fittest(paravaigal, use_one_parent_from_prev_gen=False, use_score=True):
     paravaigal.sort(key=lambda paravai: paravai.fitness_score, reverse=True)
     best_paravaigal = paravaigal[:2]
     if use_one_parent_from_prev_gen and len(best_paravaigal_in_each_gen) > 0:
-        for old_paravaigal in reversed(best_paravaigal_in_each_gen):
-            for old_paravai in old_paravaigal:
-                if old_paravai.fitness_score > best_paravaigal[1].fitness_score:
-                    best_paravaigal[1] = old_paravai
+        ancestor_paravai = get_best_ancestor(immediate_best=True, greater_than=best_paravaigal[1].fitness_score)
+        if best_paravaigal[0].fitness_score < ancestor_paravai.fitness_score:
+            best_paravaigal[1] = best_paravaigal[0]
+            best_paravaigal[0] = ancestor_paravai
+        elif best_paravaigal[1].fitness_score < ancestor_paravai.fitness_score:
+            best_paravaigal[1] = ancestor_paravai
     return best_paravaigal
 
 
@@ -233,8 +282,8 @@ def create_next_population(parents, single_parent=False):
         new_weights = [weights1, weights1]
     else:
         new_weights = crossover(all_weights, use_grandparents_gene=False)
-    new_weights1 = mutate(new_weights[0], 0.5, 0.25)
-    new_weights2 = mutate(new_weights[1], 0.5, 0.25)
+    new_weights1 = mutate(new_weights[0], 0.2, 0.5)
+    new_weights2 = mutate(new_weights[1], 0.2, 0.5)
     weights = [new_weights1, new_weights2]
     for i in range(population_count):
         kutty = Paravai()
@@ -321,9 +370,9 @@ def main():
         )
 
         globals()['movementInfo'] = showWelcomeAnimation()
-        gen_score = 0
+        gen_total_score = 0
         for gen in range(max_gen):
-            print("Generation {}".format(gen + 1))
+            print("Gen {}".format(gen + 1))
             for i in range(population_count):
                 if len(paravaigal) < population_count:
                     paravai = Paravai()
@@ -331,11 +380,11 @@ def main():
                     paravai = paravaigal[i]
                 crashInfo = mainGame(paravai)
                 paravai.time_travelled = crashInfo['time_travelled']
-                gen_score += paravai.time_travelled
+                paravai.crash_score = crashInfo['crash_score']
+                gen_total_score += paravai.time_travelled
                 paravaigal.append(paravai)
-            print("Gen score = {}".format(gen_score))
-            gen_score = 0
-            fittest_paravaigal = get_fittest(paravaigal, use_one_parent_from_prev_gen=False, use_score=False)
+            fittest_paravaigal = get_fittest(paravaigal, use_one_parent_from_prev_gen=False, use_score=True)
+            print("Gen best score = {}".format(fittest_paravaigal[0].fitness_score))
             best_paravaigal_in_each_gen.append(fittest_paravaigal)
             paravaigal.clear()
             create_next_population(fittest_paravaigal, single_parent=False)
@@ -432,6 +481,13 @@ def mainGame(paravai):
         if decision[0] > 0.5:
             paravai.flap()
         if crashTest[0]:
+            upperPipeTip = upperPipes[0]['height']
+            lowerPipeTip = lowerPipes[0]['y'] - IMAGES['player'][0].get_height()
+            crash_score = 0
+            if paravai.playery > lowerPipeTip:
+                crash_score = paravai.playery - lowerPipeTip
+            elif paravai.playery < upperPipeTip:
+                crash_score = upperPipeTip - paravai.playery
             return {
                 'y': paravai.playery,
                 'groundCrash': crashTest[1],
@@ -442,7 +498,7 @@ def mainGame(paravai):
                 'playerVelY': paravai.playerVelY,
                 'playerRot': paravai.playerRot,
                 'time_travelled': time_travelled,
-                'brain': paravai.brain
+                'crash_score': crash_score
             }
 
         # check for score
@@ -601,8 +657,8 @@ def getRandomPipe():
     upper_height = pipeHeight + pipeY_upper
     lower_height = pipeHeight - pipeY_lower
     return [
-        {'x': pipeX, 'y': pipeY_upper, 'height': pipeHeight - pipeY_upper},  # upper pipe
-        {'x': pipeX, 'y': pipeY_lower, 'height': pipeHeight - pipeY_lower},  # lower pipe
+        {'x': pipeX, 'y': pipeY_upper, 'height': upper_height},  # upper pipe
+        {'x': pipeX, 'y': pipeY_lower, 'height': lower_height},  # lower pipe
     ]
 
 

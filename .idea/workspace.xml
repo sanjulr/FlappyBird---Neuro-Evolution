@@ -1,68 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6882733a-870c-4058-bd19-3475e4184113" name="Default Changelist" comment="" />
+    <list default="true" id="6882733a-870c-4058-bd19-3475e4184113" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/flappy.py" beforeDir="false" afterPath="$PROJECT_DIR$/flappy_evolution.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/setup.py" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FUSProjectUsageTrigger">
-    <session id="1998371340">
-      <usages-collector id="statistics.lifecycle.project">
-        <counts>
-          <entry key="project.closed" value="3" />
-          <entry key="project.open.time.0" value="1" />
-          <entry key="project.open.time.1" value="1" />
-          <entry key="project.open.time.17" value="1" />
-          <entry key="project.open.time.27" value="1" />
-          <entry key="project.opened" value="4" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.open">
-        <counts>
-          <entry key="LICENSE" value="1" />
-          <entry key="py" value="15" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.open">
-        <counts>
-          <entry key="PLAIN_TEXT" value="1" />
-          <entry key="Python" value="15" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.edit">
-        <counts>
-          <entry key="py" value="8282" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.edit">
-        <counts>
-          <entry key="Python" value="8282" />
-        </counts>
-      </usages-collector>
-    </session>
-  </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/flappy.py">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/flappy_evolution.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="10170">
-              <caret line="678" column="10" lean-forward="true" selection-start-line="678" selection-start-column="10" selection-end-line="678" selection-end-column="10" />
+            <state relative-caret-position="530">
+              <caret line="228" lean-forward="true" selection-start-line="211" selection-end-line="228" />
               <folding>
                 <element signature="e#0#27#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/LICENSE">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
             </state>
           </provider>
         </entry>
@@ -71,36 +31,36 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>IMAGES['pip</find>
-      <find>newP</find>
-      <find>lowerpipe 1</find>
-      <find>print</find>
-      <find>crash</find>
-      <find>us</find>
-      <find>score * 100</find>
-      <find>lives</find>
-      <find>use_score</find>
-      <find>set</find>
-      <find>set_we</find>
-      <find>0.5</find>
-      <find>mutate</find>
-      <find>keras</find>
-      <find>Dense</find>
-      <find>input_</find>
-      <find>input_dim</find>
-      <find>LSTM</find>
-      <find>nn_i</find>
-      <find>kutty =</find>
-      <find>cross</find>
-      <find>use_one</find>
-      <find>crossover</find>
-      <find>get_fit</find>
-      <find>create_ne</find>
-      <find>appa</find>
-      <find>yosi</find>
       <find>single_par</find>
-      <find>use</find>
       <find>use_</find>
+      <find>mutate</find>
+      <find>single</find>
+      <find>mainGame</find>
+      <find>get_fittest</find>
+      <find>single_p</find>
+      <find>use_one</find>
+      <find>use_score</find>
+      <find>create_</find>
+      <find>gen score</find>
+      <find>use</find>
+      <find>0.5</find>
+      <find>decisopm</find>
+      <find>nn.</find>
+      <find>nn.f</find>
+      <find>crashIn</find>
+      <find>maing</find>
+      <find>paravai.yosi</find>
+      <find>upp</find>
+      <find>IMAGES</find>
+      <find>getRandom</find>
+      <find>yosi</find>
+      <find>crash_y</find>
+      <find>maingame</find>
+      <find>gen best</find>
+      <find>gen bes</find>
+      <find>reverse</find>
+      <find>fitness</find>
+      <find>gfitness</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -109,8 +69,10 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/flappy.py" />
         <option value="$PROJECT_DIR$/LICENSE" />
+        <option value="$PROJECT_DIR$/flappy.py" />
+        <option value="$PROJECT_DIR$/flappy_reinforcement.py" />
+        <option value="$PROJECT_DIR$/flappy_evolution.py" />
       </list>
     </option>
   </component>
@@ -143,6 +105,11 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
+  </component>
   <component name="RunDashboard">
     <option name="ruleStates">
       <list>
@@ -155,8 +122,8 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
-    <configuration name="flappy" type="PythonConfigurationType" factoryName="Python" temporary="true">
+  <component name="RunManager" selected="Python.flappy_evolution">
+    <configuration name="flappy_evolution" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="FlapPyBird-master" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -168,7 +135,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/flappy.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/flappy_evolution.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -177,9 +144,35 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="flappy_reinforcement" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="FlapPyBird-master" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/flappy_reinforcement.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Python.flappy_evolution" />
+      <item itemvalue="Python.flappy_reinforcement" />
+    </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.flappy" />
+        <item itemvalue="Python.flappy_evolution" />
+        <item itemvalue="Python.flappy_reinforcement" />
       </list>
     </recent_temporary>
   </component>
@@ -203,13 +196,13 @@
       <window_info id="Favorites" order="0" side_tool="true" />
       <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.2494043" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="0" visible="true" weight="0.3294893" />
-      <window_info anchor="bottom" id="Event Log" order="1" side_tool="true" />
+      <window_info anchor="bottom" id="Terminal" order="0" weight="0.3294893" />
+      <window_info anchor="bottom" id="Event Log" order="1" sideWeight="0.50039715" side_tool="true" weight="0.3294893" />
       <window_info anchor="bottom" id="Python Console" order="2" />
       <window_info anchor="bottom" id="Message" order="3" />
-      <window_info anchor="bottom" id="Find" order="4" />
+      <window_info anchor="bottom" id="Find" order="4" weight="0.3294893" />
       <window_info anchor="bottom" id="Version Control" order="5" />
-      <window_info anchor="bottom" id="Run" order="6" weight="0.3294893" />
+      <window_info anchor="bottom" id="Run" order="6" sideWeight="0.49960285" weight="0.3294893" />
       <window_info anchor="bottom" id="Debug" order="7" weight="0.3970346" />
       <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="9" weight="0.4" />
@@ -222,13 +215,13 @@
       <window_info id="Favorites" order="0" side_tool="true" />
       <window_info content_ui="combo" id="Project" order="1" weight="0.2494043" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="0" />
-      <window_info anchor="bottom" id="Event Log" order="1" side_tool="true" />
+      <window_info anchor="bottom" id="Terminal" order="0" weight="0.3294893" />
+      <window_info anchor="bottom" id="Event Log" order="1" sideWeight="0.50039715" side_tool="true" weight="0.3294893" />
       <window_info anchor="bottom" id="Python Console" order="2" />
       <window_info anchor="bottom" id="Message" order="3" />
-      <window_info anchor="bottom" id="Find" order="4" />
-      <window_info anchor="bottom" id="Version Control" order="5" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Run" order="6" visible="true" weight="0.3294893" />
+      <window_info anchor="bottom" id="Find" order="4" weight="0.3294893" />
+      <window_info anchor="bottom" id="Version Control" order="5" />
+      <window_info active="true" anchor="bottom" id="Run" order="6" sideWeight="0.49960285" visible="true" weight="0.3294893" />
       <window_info anchor="bottom" id="Debug" order="7" weight="0.3970346" />
       <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="9" weight="0.4" />
@@ -237,9 +230,6 @@
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
     </layout-to-restore>
-  </component>
-  <component name="VcsContentAnnotationSettings">
-    <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/setup.py">
@@ -261,20 +251,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="248">
           <caret line="148" column="14" lean-forward="true" selection-start-line="148" selection-start-column="14" selection-end-line="148" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/anaconda3/lib/python3.6/site-packages/sklearn/neural_network/multilayer_perceptron.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="177">
-          <caret line="164" column="17" selection-start-line="164" selection-start-column="12" selection-end-line="164" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/anaconda3/lib/python3.6/site-packages/keras/engine/training.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="254">
-          <caret line="828" column="21" lean-forward="true" selection-start-line="828" selection-start-column="21" selection-end-line="828" selection-end-column="21" />
         </state>
       </provider>
     </entry>
@@ -313,20 +289,48 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/flappy.py">
+    <entry file="file://$PROJECT_DIR$/LICENSE">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="10170">
-          <caret line="678" column="10" lean-forward="true" selection-start-line="678" selection-start-column="10" selection-end-line="678" selection-end-column="10" />
-          <folding>
-            <element signature="e#0#27#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="187">
+          <caret line="14" column="35" selection-start-line="14" selection-start-column="35" selection-end-line="14" selection-end-column="35" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/LICENSE">
+    <entry file="file://$USER_HOME$/anaconda3/lib/python3.6/site-packages/sklearn/neural_network/multilayer_perceptron.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
+        <state relative-caret-position="127">
+          <caret line="884" column="8" selection-start-line="884" selection-start-column="8" selection-end-line="884" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/anaconda3/lib/python3.6/site-packages/keras/engine/training.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2954">
+          <caret line="830" column="27" lean-forward="true" selection-start-line="830" selection-start-column="27" selection-end-line="830" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/flappy_reinforcement.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-67">
+          <caret line="110" column="22" lean-forward="true" selection-start-line="110" selection-start-column="22" selection-end-line="110" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/anaconda3/lib/python3.6/site-packages/tensorflow/python/ops/standard_ops.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="113">
+          <caret line="57" selection-start-line="57" selection-end-line="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/flappy_evolution.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="530">
+          <caret line="228" lean-forward="true" selection-start-line="211" selection-end-line="228" />
+          <folding>
+            <element signature="e#0#27#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
